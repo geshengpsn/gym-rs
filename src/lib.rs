@@ -17,6 +17,7 @@ mod environment;
 pub mod error;
 pub mod space_data;
 pub mod space_template;
+mod spec;
 
 type DiscreteType = usize;
 type VectorType<T> = ndarray::Array1<T>;

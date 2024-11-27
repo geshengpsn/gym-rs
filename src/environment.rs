@@ -3,6 +3,7 @@ use cpython::{GILGuard, NoArgs, ObjectProtocol, PyDict, PyObject, PyTuple};
 use crate::error::GymError;
 use crate::space_data::SpaceData;
 use crate::space_template::SpaceTemplate;
+use crate::spec::Spec;
 use crate::{Action, State};
 
 pub struct Environment<'a> {
@@ -99,5 +100,11 @@ impl<'a> Environment<'a> {
 	/// Returns the shape of the observation tensors.
 	pub fn observation_space(&self) -> &SpaceTemplate {
 		&self.observation_space
+	}
+
+	pub fn spec(&self) -> Spec {
+		let py = self.gil.python();
+		let pyo = self.env.getattr(py, "spec").expect("Unable to get attribute 'spec'");
+		Spec::extract_data(&pyo)
 	}
 }

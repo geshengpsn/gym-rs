@@ -40,7 +40,7 @@ mod tests {
 			.make(
 				"ALE/Asteroids-v5",
 				Some(MakeOptions {
-					use_old_gym_enviroment: true,
+					// use_old_gym_enviroment: true,
 					..Default::default()
 				}),
 			)
@@ -108,7 +108,7 @@ mod tests {
 			.make(
 				"ReversedAddition3-v0",
 				Some(MakeOptions {
-					use_old_gym_enviroment: true,
+					// use_old_gym_enviroment: true,
 					..Default::default()
 				}),
 			)
